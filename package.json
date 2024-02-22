@@ -5,11 +5,12 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "live-server --verbose ."  
+    "dev": "live-server --verbose ."
   },
   "author": "ojack",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "pwa-asset-generator": "^6.3.1"
   }
 }
