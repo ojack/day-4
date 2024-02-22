@@ -2,52 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>DAY FOUR!!! AHHHHHH</title>
-    <script src="./lib/hydra-synth.js"></script>
-    <script src="./lib/gyro.js"></script>
-	  <meta name="apple-mobile-web-app-capable" content="yes">
-	  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	  <link rel="apple-touch-icon" href="icons/192x192.png">
-	  <meta http-equiv="Cache-Control" content="no-store" />
-    <link rel="manifest" href="manifest.json">
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-                    console.log('ServiceWorker registered');
-                  }).catch(function(err) {
-                    console.log('ServiceWorker error: ', err);
-                  });
-            })
-        }
-    </script>    
-    <style>
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>DAY FOUR!!! AHHHHHH</title>
+  <script src="./lib/hydra-synth.js"></script>
+  <script src="./lib/gyro.js"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icons/192x192.png">
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <link rel="manifest" href="manifest.json">
+  <script>
+    // if ('serviceWorker' in navigator) {
+    //     window.addEventListener("load", () => {
+    //         navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+    //             console.log('ServiceWorker registered');
+    //           }).catch(function(err) {
+    //             console.log('ServiceWorker error: ', err);
+    //           });
+    //     })
+    // }
+  </script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
 
-        canvas {
-            display: block;
-        }
-   </style>
+    canvas {
+      display: block;
+    }
+
+    #gyro-button {
+      position: absolute;
+    }
+  </style>
 </head>
 
 <body>
-    <script type="module">
-        const h = new Hydra()
+  <script type="module">
+    const h = new Hydra()
 
-        shape().scrollX(() => gyro.beta / 4).scrollY(() => gyro.gamma / 4).out()
-        gyro.requestPermissions(document.getElementById('gyro-button'))
-        gyro.show()
-    </script>
-    <button id="gyro-button">activate gyroscope</button>
+    gyro.requestPermissions(document.getElementById('gyro-button'))
+    // gyro.show()
+
+    src(o0)
+      .scale(1.01, 1, 1, () => 0.5 - gyro.beta, () => 0.5 - gyro.gamma)
+      // 	.brightness(-0.002)
+      .layer(gradient(0.2)
+        .colorama(4)
+        .mask(shape(4, 0.2, 0))
+        // .scrollX(() => gyro.beta)
+        // .scrollY(() => gyro.gamma)
+      )
+      .out(o0)
+  </script>
+  <button id="gyro-button">activate gyroscope</button>
 </body>
 
 </html>
