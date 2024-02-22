@@ -1,7 +1,7 @@
 {
   "name": "olivia's app",
   "short_name": "olivia's app",
-  "start_url": "The URL that should be loaded when your application is opened",
+  "start_url": "/",
   "display": "standalone",
   "description": "A description for your application",
   "lang": " The default language of your application",
