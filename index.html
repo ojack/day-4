@@ -3,15 +3,17 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>DAY FOUR!!! AHHHHHH</title>
   <script src="./lib/hydra-synth.js"></script>
   <script src="./lib/gyro-v2.js"></script>
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="icons/192x192.png">
   <meta http-equiv="Cache-Control" content="no-store" />
   <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
   <script>
     // if ('serviceWorker' in navigator) {
     //     window.addEventListener("load", () => {
@@ -45,17 +47,21 @@
       cursor: pointer;
       background-size: cover;
       background-position: center;
-      background-image: url("cover.png");
+      /* background-image: url("cover.png"); */
       top: 0px;
       left: 0px;
       z-index: 200;
       border: none;
+      font-size: 100px;
+      -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
     }
   </style>
 </head>
 
 <body>
-  <button id="gyro-button">activate gyroscope</button>
+  <button id="gyro-button">enter the void</button>
   <script type="module">
     const h = new Hydra()
 
@@ -67,15 +73,15 @@
 
     src(o0)
       .scale(1.005, 1, 1, () => 0.5 - gyro.beta, () => 0.5 - gyro.gamma)
-      .layer(gradient(0.2)
-        .colorama(4)
+      .layer(gradient(0.05)
+        .colorama(2)
+        .hue(() => time*0.04)
         .mask(shape(4, 0.2, 0))
       )
+      
       .out(o0)
 
-    window.addEventListener('pointerdown', () => {
-      osc().out()
-    })
+   
   </script>
 </body>
 
