@@ -54,19 +54,23 @@
   <script type="module">
     const h = new Hydra()
 
+    // if you are not using audio, use this instead
+    // const h = new Hydra({ detectAudio: false })
+
+    // request gyroscope permisssions
     gyro.requestPermissions(document.getElementById('gyro-button'))
-    // gyro.show()
 
     src(o0)
-      .scale(1.01, 1, 1, () => 0.5 - gyro.beta, () => 0.5 - gyro.gamma)
-      // 	.brightness(-0.002)
+      .scale(1.005, 1, 1, () => 0.5 - gyro.beta, () => 0.5 - gyro.gamma)
       .layer(gradient(0.2)
         .colorama(4)
         .mask(shape(4, 0.2, 0))
-        // .scrollX(() => gyro.beta)
-        // .scrollY(() => gyro.gamma)
       )
       .out(o0)
+
+    window.addEventListener('pointerdown', () => {
+      osc().out()
+    })
   </script>
   <button id="gyro-button">activate gyroscope</button>
 </body>
